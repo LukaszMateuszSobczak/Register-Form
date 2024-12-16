@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.lukaszsobczak.registerform"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.lukaszsobczak.registerform"
