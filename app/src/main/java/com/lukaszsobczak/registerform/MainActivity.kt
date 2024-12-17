@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createSpinner() {
-        val spinnerValues = arrayOf("Miss", "Mrs.", "Mr.", "Ms.")
+        val spinnerValues: Array<String> = arrayOf("Miss", "Mrs.", "Mr.", "Ms.")
         val spinnerAdapter = ArrayAdapter(
             this,
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
