@@ -17,6 +17,19 @@ class AccountPreviewActivity : AppCompatActivity() {
         binding = ActivityAccountPrevievBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        displayAccountDataToUser()
+
+        binding.cardViewEmail.setOnClickListener {
+            newEmail()
+        }
+
+        binding.cardViewPhone.setOnClickListener {
+            newSms()
+        }
+
+    }
+
+    private fun displayAccountDataToUser() {
         val intentData = intent.getSerializableExtra("objectInstance") as Account
 
         val nameWithPrefix = "${intentData.prefix} ${intentData.name}"
@@ -26,14 +39,6 @@ class AccountPreviewActivity : AppCompatActivity() {
         binding.textViewEmailContent.text = intentData.email
         binding.textViewPhoneContent.text = intentData.phone
         binding.textViewPasswordContent.text = intentData.password
-
-        binding.cardViewEmail.setOnClickListener {
-            newEmail()
-        }
-
-        binding.cardViewPhone.setOnClickListener{
-            newSms()
-        }
 
     }
 
@@ -45,7 +50,7 @@ class AccountPreviewActivity : AppCompatActivity() {
     }
 
     private fun newEmail() {
-        val emailIntent = Intent(Intent.ACTION_SENDTO).apply{
+        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:")
             putExtra(Intent.EXTRA_EMAIL, "sobczak.lukasz.mateusz@gmail.com")
         }
